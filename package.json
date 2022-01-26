@@ -1,16 +1,17 @@
 {
   "dependencies": {
-    "express": "^4.17.2"
+    "express": "^4.17.2",
+    "nodemon": "^2.0.15"
   },
   "name": "basicbegistration3",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "yarn src/server.js",
-    "dev": "yarn src/server.js",
-  "repository": "https://github.com/DrisHel/ChallengeThreeMaria-.git",
-  "author": "Doris Nunes <doris90nunes@gmail.com>",
-  "license": "MIT"
-}
-}
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js"
+  },
+    "repository": "https://github.com/DrisHel/ChallengeThreeMaria-.git",
+    "author": "Doris Nunes <doris90nunes@gmail.com>",
+    "license": "MIT"
+  }
+
