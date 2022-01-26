@@ -1,13 +1,14 @@
 const mongoose = require('mongoose');
 
-
 class Database {
   constructor() {
     this.connect();
   }
 
   connect() {
-    return mongoose.connect('mongodb+srv://doris:1234@cluster0.kkipq.mongodb.net/myFirstCompany?retryWrites=true&w=majority');
+    return mongoose.connect(
+      'mongodb+srv://doris:1234@cluster0.kkipq.mongodb.net/myFirstCompany?retryWrites=true&w=majority'
+    );
   }
 }
 
