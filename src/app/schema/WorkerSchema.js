@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const mongoosePaginate = require('mongoose-paginate-v2');
+const { enumWorker1 } = require('../utils/enumWorker');
 
 const Worker = mongoose.Schema({
   name: {
@@ -20,7 +21,7 @@ const Worker = mongoose.Schema({
 
   office: {
     type: String,
-    enum: ['manager', 'seller', 'cashier'], // gerente, vendedor, caixa
+    enum: enumWorker1,
     required: true
   },
 
