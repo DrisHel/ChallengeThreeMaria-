@@ -5,11 +5,7 @@ class WorkerRepository {
     return schemaWorker.create(payload);
   }
 
-  async find(search) {
-    return schemaWorker.find(search);
-  }
-
-  /*   async findAll(search) {
+  async findAll(search) {
     const { page = 1, limit = 100, ...query } = search;
     return schemaWorker.paginate(
       { query },
@@ -19,10 +15,10 @@ class WorkerRepository {
         skip: (Number(page) - 1) * limit
       }
     );
-  } */
+  }
 
   async updateById(id, payload) {
-    return schemaWorker.findByIdAndUpdate(id, { ...payload });
+    return schemaWorker.findByIdAndUpdate(id, { ...payload }, { new: true });
   }
 
   async deleteById(id) {
