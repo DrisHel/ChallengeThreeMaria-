@@ -37,4 +37,4 @@ const Worker = mongoose.Schema(
 );
 
 // Worker.plugin(mongoosePaginate);
-module.exports = mongoose.model(' worker', Worker);
+module.exports = mongoose.model('worker', Worker);
