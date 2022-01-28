@@ -7,7 +7,8 @@ class WorkerService {
   }
 
   async listAll(search) {
-    return WorkerRepository.find(search);
+    const result = await WorkerRepository.find(search);
+    return result;
   }
 
   async updateWorker(id, payload) {
