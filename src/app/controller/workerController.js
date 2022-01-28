@@ -1,11 +1,12 @@
 /* eslint-disable consistent-return */
+const { serializer, paginatedSerializer } = require('../serializer/workerSelializer');
 const WorkerService = require('../service/workerService');
 
 class WorkerController {
   async create(req, res) {
     try {
       const result = await WorkerService.create(req.body);
-      return res.status(201).json(result);
+      return res.status(201).json(serializer(result));
     } catch (error) {
       return res.status(400).json({ error });
     }
@@ -14,7 +15,7 @@ class WorkerController {
   async getAll(req, res) {
     try {
       const result = await WorkerService.listAll(req.query);
-      return res.status(200).json(result);
+      return res.status(200).json(paginatedSerializer(result));
     } catch (error) {
       res.status(400).json({ msg: error.message });
     }
@@ -31,8 +32,8 @@ class WorkerController {
 
   async delete(req, res) {
     try {
-      const result = await WorkerService.deleteWorker(req.params.id);
-      return res.status(204).json(result);
+      await WorkerService.deleteWorker(req.params.id);
+      return res.status(204).json({});
     } catch (error) {
       res.status(400).json(error);
     }
