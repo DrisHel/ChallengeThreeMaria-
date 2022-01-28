@@ -12,7 +12,7 @@ class WorkerService {
   }
 
   async listAll(search) {
-    const result = await WorkerRepository.find(search);
+    const result = await WorkerRepository.findAll(search);
     return result;
   }
 
