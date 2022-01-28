@@ -1,6 +1,6 @@
 const express = require('express');
 const router = require('./routes/index');
-require('./infra/database/myBd');
+require('./infra/database/db');
 
 class App {
   constructor() {
