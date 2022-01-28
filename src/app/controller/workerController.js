@@ -34,7 +34,7 @@ class WorkerController {
       const result = await WorkerService.deleteWorker(req.params.id);
       return res.status(204).json(result);
     } catch (error) {
-      res.status(400).json({ msg: error.message });
+      res.status(400).json(error);
     }
   }
 }
