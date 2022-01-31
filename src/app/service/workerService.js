@@ -1,3 +1,4 @@
+const BadRequest = require('../error/BadRequest');
 const WorkerRepository = require('../repository/workerRepository');
 const validationCpf = require('../utils/validationCpf');
 
@@ -5,7 +6,7 @@ class WorkerService {
   async create(payload) {
     const isCpfValid = validationCpf(payload.cpf);
 
-    if (isCpfValid) throw new Error();
+    if (isCpfValid) throw new BadRequest(isCpfValid);
 
     const result = await WorkerRepository.create(payload);
     return result;
