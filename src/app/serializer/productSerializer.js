@@ -1,10 +1,11 @@
-const serializer = ({ _id, name, category, price, createdAt, updatedAt }) => ({
-  _id,
+const serializer = ({ _id, name, category, price, employee_id, createdAt, updatedAt }) => ({
+  product_id: _id,
   name,
   category,
   price,
   createdAt,
-  updatedAt
+  updatedAt,
+  employee_id
 });
 
 const paginatedSerializer = ({ docs, totalDocs, limit, totalPages, page }) => ({
