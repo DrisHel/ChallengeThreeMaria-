@@ -46,12 +46,22 @@ class WorkerController {
       await WorkerService.deleteWorker(req.params.id);
       return res.status(204).json({});
     } catch (error) {
-      res.status(400).json({
+      return res.status(404).json({
         message: error.message,
-
         details: {
           description: error.description
         }
+      });
+    }
+  }
+
+  async listOne(req, res) {
+    try {
+      const aqui = await WorkerService.listOne(req.id);
+      return res.status(201).json(aqui);
+    } catch (error) {
+      res.status(400).json({
+        message: 'ID NotFound'
       });
     }
   }
