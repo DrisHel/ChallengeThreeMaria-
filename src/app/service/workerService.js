@@ -1,6 +1,7 @@
 const BadRequest = require('../error/BadRequest');
 const WorkerRepository = require('../repository/workerRepository');
 const validationCpf = require('../utils/validationCpf');
+const NotFound = require('../error/NotFounds');
 
 class WorkerService {
   async create(payload) {
@@ -23,7 +24,14 @@ class WorkerService {
   }
 
   async deleteWorker(id) {
+    const procure = await WorkerRepository.listById(id);
+    if (!procure) throw new NotFound('ID was Not Found');
     const result = await WorkerRepository.deleteById(id);
+    return result;
+  }
+
+  async listOne(id) {
+    const result = await workerRepository.listById(id);
     return result;
   }
 }
