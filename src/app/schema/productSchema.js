@@ -15,6 +15,12 @@ const Product = mongoose.Schema({
   price: {
     type: String,
     required: true
+  },
+
+  employee_id: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Worker',
+    required: true
   }
 });
 
