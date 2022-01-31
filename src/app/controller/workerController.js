@@ -8,7 +8,12 @@ class WorkerController {
       const result = await WorkerService.create(req.body);
       return res.status(201).json(serializer(result));
     } catch (error) {
-      return res.status(400).json({ error });
+      return res.status(400).json({
+        message: error.message,
+        details: {
+          description: error.description
+        }
+      });
     }
   }
 
@@ -17,7 +22,13 @@ class WorkerController {
       const result = await WorkerService.listAll(req.query);
       return res.status(200).json(paginatedSerializer(result));
     } catch (error) {
-      res.status(400).json({ msg: error.message });
+      res.status(400).json({
+        message: error.message,
+
+        details: {
+          description: error.description
+        }
+      });
     }
   }
 
@@ -35,7 +46,13 @@ class WorkerController {
       await WorkerService.deleteWorker(req.params.id);
       return res.status(204).json({});
     } catch (error) {
-      res.status(400).json(error);
+      res.status(400).json({
+        message: error.message,
+
+        details: {
+          description: error.description
+        }
+      });
     }
   }
 }
