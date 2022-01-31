@@ -24,5 +24,9 @@ class WorkerRepository {
   async deleteById(id) {
     return schemaWorker.findByIdAndDelete(id);
   }
+
+  async listById(id) {
+    return schemaWorker.findOne({ id });
+  }
 }
 module.exports = new WorkerRepository();
