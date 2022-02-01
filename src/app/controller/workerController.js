@@ -43,7 +43,7 @@ class WorkerController {
 
   async delete(req, res) {
     try {
-      await WorkerService.deleteWorker(req.params.id);
+      await WorkerService.deleteWorker(req.paramns.id);
       return res.status(204).json({});
     } catch (error) {
       return res.status(404).json({
