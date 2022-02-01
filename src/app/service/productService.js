@@ -10,6 +10,11 @@ class ProductService {
     const result = await productRepository.findAll(search);
     return result;
   }
+
+  async listOne(id) {
+    const result = await productRepository.listById(id);
+    return result;
+  }
 }
 
 module.exports = new ProductService();
