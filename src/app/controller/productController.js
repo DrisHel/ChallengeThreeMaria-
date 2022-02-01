@@ -21,10 +21,10 @@ class productController {
     }
   }
 
-  async listOne(req, res) {
+  async listAll(req, res) {
     try {
-      const aqui = await productService.listOne(req.id);
-      return res.status(201).json(aqui);
+      const listProduct = await productService.listAll(req.id);
+      return res.status(201).json(listProduct);
     } catch (error) {
       res.status(400).json({
         message: 'ID NotFound'
