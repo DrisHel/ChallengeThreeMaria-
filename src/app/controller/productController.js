@@ -20,6 +20,17 @@ class productController {
       res.status(400).json({ msg: error.message });
     }
   }
+
+  async listOne(req, res) {
+    try {
+      const aqui = await productService.listOne(req.id);
+      return res.status(201).json(aqui);
+    } catch (error) {
+      res.status(400).json({
+        message: 'ID NotFound'
+      });
+    }
+  }
 }
 
 // eslint-disable-next-line new-cap
