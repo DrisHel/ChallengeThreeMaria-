@@ -1,3 +1,3 @@
-const enumWorker1 = ['gerente', 'vendedor', 'caixa'];
-
-module.exports = { enumWorker1 };
+const enumOffice = ['gerente', 'vendedor', 'caixa'];
+const enumSituation = ['activate', 'deactivate'];
+module.exports = { enumOffice, enumSituation };
