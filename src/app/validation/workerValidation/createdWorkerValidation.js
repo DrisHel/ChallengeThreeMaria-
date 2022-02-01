@@ -5,8 +5,8 @@ const { enumWorker1 } = require('../../utils/enumWorker');
 module.exports = async (req, res, next) => {
   try {
     const schema = Joi.object({
-      name: Joi.string().min(10).max(40).required(),
-      cpf: Joi.string().length(11).required(),
+      name: Joi.string().min(10).max(40).trim().required(),
+      cpf: Joi.string().length(11).trim().required(),
       birthday: Joi.date().format('DD/MM/YYYY').less(Date.now()).required(),
       office: Joi.string()
         .valid(...enumWorker1)
