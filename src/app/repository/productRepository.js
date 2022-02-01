@@ -16,5 +16,9 @@ class ProductRepository {
       }
     );
   }
+
+  async listById(id) {
+    return productSchema.findOne({ id });
+  }
 }
 module.exports = new ProductRepository();
